@@ -24,3 +24,13 @@ func (r *customerRepository) FindAll() (*[]models.Customers, error) {
 
 	return result, nil
 }
+
+func (r *customerRepository) Insert(c *models.RequestInsertCustomer) error {
+	err := r.Repo.Create(c)
+
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
